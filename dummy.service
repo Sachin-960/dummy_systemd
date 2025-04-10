@@ -1,0 +1,12 @@
+[Unit]
+Description=Dummy Background Service
+
+[Service]
+ExecStart=dummy.sh
+Restart=always # Ensures it run all time and restart if it crashes or fails
+RestartSec=5 # Wait before restarting the services
+StandardOutput=append:/var/log/dummy-service.log
+StandardError=append:/var/log/dummy-service.log
+
+[Install]
+WantedBy=multi-user.target #ensures always run on boot in normal mode
